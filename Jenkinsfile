@@ -36,7 +36,7 @@ pipeline {
  				 sh 'sudo  apt-get update'
  				  sh 'sudo apt-get install pack-cli'
 			   
-				  sh 'pack build fazilniveus/devops:${env.BUILD_ID}  --builder paketobuildpacks/builder:full'
+				  sh 'pack build app --builder paketobuildpacks/builder:full'
 			    
 		    }
 	    }
