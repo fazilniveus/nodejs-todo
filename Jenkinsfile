@@ -37,6 +37,7 @@ pipeline {
  				  sh 'sudo apt-get install pack-cli'
 			   
 				  sh 'pack build app --builder paketobuildpacks/builder:full'
+			    	  sh 'sudo docker tag app:latest gcr.io/tech-rnd-project/faz-todo:${env.BUILD_ID}'
 			    
 		    }
 	    }
@@ -45,10 +46,7 @@ pipeline {
 		    steps {
 			    script {
 				    echo "Push Docker Image"
-				    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-            				sh "docker login -u fazilniveus -p ${dockerhub}"
-				    }
-				        myimage.push("${env.BUILD_ID}")
+				        sh 'sudo docker push gcr.io/tech-rnd-project/faz-todo:${env.BUILD_ID}'
 				    
 			    }
 		    }
