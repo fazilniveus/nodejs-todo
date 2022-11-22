@@ -32,9 +32,9 @@ pipeline {
 			    sh 'whoami'
 			    
 				    
-				sh 'sudo add-apt-repository ppa:cncf-buildpacks/pack-cli'
- 				 sh 'sudo apt-get update'
- 				  sh 'sudo apt-get install pack-cli'
+				sh 'sudo -s add-apt-repository ppa:cncf-buildpacks/pack-cli'
+ 				 sh 'sudo -s apt-get update'
+ 				  sh 'sudo-s apt-get install pack-cli'
 			   
 				  sh 'pack build fazilniveus/devops:${env.BUILD_ID}  --builder paketobuildpacks/builder:full'
 			    
