@@ -37,7 +37,7 @@ pipeline {
  				  sh 'sudo apt-get install pack-cli'
 			   
 				  sh 'pack build app --builder paketobuildpacks/builder:full'
-			    	  sh 'docker tag app:latest gcr.io/tech-rnd-project/faz-todo:latest'
+			    	  sh "docker tag app:latest gcr.io/tech-rnd-project/faz-todo:${env.BUILD_ID}"
 			    
 		    }
 	    }
@@ -46,7 +46,7 @@ pipeline {
 		    steps {
 			    script {
 				    echo "Push Docker Image"
-				        sh 'sudo docker push gcr.io/tech-rnd-project/faz-todo:latest'
+				        sh "sudo docker push gcr.io/tech-rnd-project/faz-todo:${env.BUILD_ID}"
 				    
 			    }
 		    }
