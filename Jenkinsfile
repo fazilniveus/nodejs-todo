@@ -31,7 +31,13 @@ pipeline {
 		    steps {
 			    sh 'whoami'
 			    script {
-				    myimage = docker.build("fazilniveus/devops:${env.BUILD_ID}")
+				    
+				    add-apt-repository ppa:cncf-buildpacks/pack-cli
+ 				    apt-get update
+ 				    apt-get install pack-cli
+
+				    myimage = pack build fazilniveus/devops:${env.BUILD_ID}  --builder paketobuildpacks/builder:full
+				    
 			    }
 		    }
 	    }
