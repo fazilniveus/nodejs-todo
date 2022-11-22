@@ -30,12 +30,11 @@ pipeline {
 	    stage('Build Docker Image') {
 		    steps {
 			    sh 'whoami'
-			    script {
+			    
 				    
-				sh '''
-				    sudo add-apt-repository ppa:cncf-buildpacks/pack-cli
- 				    sudo apt-get update
- 				    sudo apt-get install pack-cli
+				sh 'sudo add-apt-repository ppa:cncf-buildpacks/pack-cli'
+ 				 sh 'sudo apt-get update'
+ 				  sh 'sudo apt-get install pack-cli'
 
 				    myimage = pack build fazilniveus/devops:${env.BUILD_ID}  --builder paketobuildpacks/builder:full
 				'''
