@@ -25,12 +25,6 @@ pipeline {
                   sh 'npm install'
               }
           }
-          stage('test') {
-              steps {
-                  echo 'testing the software'
-                  sh 'npm test'
-              }
-          }
 
 	    
 	    stage('Build Docker Image') {
