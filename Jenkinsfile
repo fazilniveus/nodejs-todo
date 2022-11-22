@@ -21,7 +21,9 @@ pipeline {
 	    }
 	    stage('Build') {
 		    steps {
+			nodejs('NodeJS 19.1.0') {
         	    		sh 'npm install'
+			}
 		    }
 	    }
 			    
