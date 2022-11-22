@@ -19,20 +19,19 @@ pipeline {
 			    	checkout scm
 		    }
 	    }
-	    stage('Build') {
-		    steps {
-			
-        	    		sh 'npm install'
-			
-		    }
-	    }
-			    
-	    stage('Test') {
-		    steps {
-			   	echo "Testing..."
-        			sh 'node test'
-		    }
-	    }
+	    stage('build') {
+              steps {
+                  echo 'building the software'
+                  sh 'npm install'
+              }
+          }
+          stage('test') {
+              steps {
+                  echo 'testing the software'
+                  sh 'npm test'
+              }
+          }
+
 	    
 	    stage('Build Docker Image') {
 		    steps {
