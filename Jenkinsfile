@@ -35,10 +35,9 @@ pipeline {
 				sh 'sudo add-apt-repository ppa:cncf-buildpacks/pack-cli'
  				 sh 'sudo apt-get update'
  				  sh 'sudo apt-get install pack-cli'
-			    script {
-				    myimage = pack build fazilniveus/devops:${env.BUILD_ID}  --builder paketobuildpacks/builder:full
+			   
+				  sh 'pack build fazilniveus/devops:${env.BUILD_ID}  --builder paketobuildpacks/builder:full'
 			    
-			    }
 		    }
 	    }
 	    
