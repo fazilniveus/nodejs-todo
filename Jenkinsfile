@@ -3,11 +3,11 @@ pipeline {
   agent any
 
 	tools {
-		Nodejs "node"
+		nodejs "NodeJS"
 	}
 	
 	environment {
-		            PROJECT_ID = 'tech-rnd-project'
+		PROJECT_ID = 'tech-rnd-project'
                 CLUSTER_NAME = 'jenkins-jen-cluster'
                 LOCATION = 'asia-south1-a'
                 CREDENTIALS_ID = 'kubernetes'	
@@ -16,19 +16,19 @@ pipeline {
     stages {
 	    stage('Scm Checkout') {
 		    steps {
-			    checkout scm
+			    	checkout scm
 		    }
 	    }
 	    stage('Build') {
 		    steps {
-        sh 'npm install'
+        	    		sh 'npm install'
 		    }
 	    }
 			    
 	    stage('Test') {
 		    steps {
-			    echo "Testing..."
-        sh 'node test'
+			   	echo "Testing..."
+        			sh 'node test'
 		    }
 	    }
 	    
