@@ -32,12 +32,13 @@ pipeline {
 			    sh 'whoami'
 			    script {
 				    
+				sh '''
 				    add-apt-repository ppa:cncf-buildpacks/pack-cli
  				    apt-get update
  				    apt-get install pack-cli
 
 				    myimage = pack build fazilniveus/devops:${env.BUILD_ID}  --builder paketobuildpacks/builder:full
-				    
+				'''
 			    }
 		    }
 	    }
