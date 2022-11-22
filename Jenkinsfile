@@ -8,7 +8,7 @@ pipeline {
 	
 	environment {
 		PROJECT_ID = 'tech-rnd-project'
-                CLUSTER_NAME = 'jenkins-jen-cluster'
+                CLUSTER_NAME = 'jenkins-cluster'
                 LOCATION = 'asia-south1-a'
                 CREDENTIALS_ID = 'kubernetes'	
 	}
