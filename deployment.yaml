@@ -1,32 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: knote
+spec:
+  selector:
+    app: knote
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "draw-app"
+  name: knote
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: draw-app
+      app: knote
   template:
     metadata:
       labels:
-        app: draw-app
+        app: knote
     spec:
       containers:
-        - name: draw-app
-          image: "gcr.io/tech-rnd-project/faz-todo:tagversion"
+        - name: knote
+          image: gcr.io/tech-rnd-project/faz-todo:tagversion
           ports:
-            - containerPort: 1234
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: draw-app
-spec:
-  ports:
-    - port: 1234
-      targetPort: 1234
-  type: LoadBalancer
-  selector:
-    app: draw-app
+            - containerPort: 3000
