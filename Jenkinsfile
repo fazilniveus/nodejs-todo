@@ -50,7 +50,7 @@ pipeline {
 				    
 				    	sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.7.0/bin/linux/amd64/kubectl"
 				        sh "sudo chmod +x ./kubectl"
-				        sh "sudo mv ./kubectl /usr/local/bin/kubectl
+				        sh "sudo mv ./kubectl /usr/local/bin/kubectl"
 "
 				    
 			    }
