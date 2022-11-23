@@ -52,7 +52,7 @@ pipeline {
 
 					sh "chmod +x kubectl"
 
-					sh "sudo mv kubectl $(which kubectl)"
+					sh "sudo mv kubectl \$(which kubectl)"
 
 				    
 			    }
