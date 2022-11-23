@@ -48,8 +48,11 @@ pipeline {
 				    echo "Push Docker Image"
 				        sh "sudo docker push gcr.io/tech-rnd-project/faz-todo:${env.BUILD_ID}"
 				    
-				    	sh "curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.7.0/bin/linux/amd64/kubectl"
-				        sh "sudo chmod +x ./kubectl"
+					sh 'curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl'
+
+					sh "chmod +x kubectl"
+
+					sh "sudo mv kubectl $(which kubectl)"
 
 				    
 			    }
