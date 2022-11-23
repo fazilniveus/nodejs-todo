@@ -46,7 +46,7 @@ pipeline {
 		    steps {
 			    script {
 				    echo "Push Docker Image"
-				        sh "sudo gcloud docker -- push gcr.io/tech-rnd-project/faz-todo:${env.BUILD_ID}"
+				        sh "gcloud docker push gcr.io/tech-rnd-project/faz-todo:${env.BUILD_ID}"
 				    
 			    }
 		    }
