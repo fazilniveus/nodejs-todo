@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: draw-app
-          image: "gcr.io/tech-rnd-project/draw"
+          image: "gcr.io/tech-rnd-project/faz-todo:latest"
           ports:
             - containerPort: 1234
 ---
