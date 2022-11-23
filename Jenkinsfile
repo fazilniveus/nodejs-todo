@@ -10,7 +10,7 @@ pipeline {
 		PROJECT_ID = 'tech-rnd-project'
                 CLUSTER_NAME = 'jenkins-cluster'
                 LOCATION = 'asia-south1-a'
-                CREDENTIALS_ID = credentials('kubernetes')	
+                CREDENTIALS_ID = 'kubernetes'	
 	}
 	
     stages {
