@@ -8,7 +8,7 @@ pipeline {
 	
 	environment {
 		PROJECT_ID = 'tech-rnd-project'
-                CLUSTER_NAME = 'jenkins-cluster'
+                CLUSTER_NAME = 'jenkins-jen-cluster'
                 LOCATION = 'asia-south1-a'
                 CREDENTIALS_ID = 'kubernetes'	
 	}
@@ -51,6 +51,7 @@ pipeline {
 		    steps {
 			    script {
 				    echo "Push Docker Image"
+				        sh 'gcloud auth configure-docker'
 				        sh "sudo docker push gcr.io/tech-rnd-project/faz-todo:${env.BUILD_ID}"
 				    
 					sh 'curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl'
